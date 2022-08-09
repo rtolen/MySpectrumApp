@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MySpectrumApp"
+             xmlns:vm="clr-namespace:MySpectrumApp.ViewModels"
+             xmlns:cv="clr-namespace:MySpectrumApp.Converters"
+             x:Class="MySpectrumApp.Views.ConverterPage"
+             Title="Converter Page">
+    <ContentPage.BindingContext>
+        <vm:ConverterViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <cv:MySpectrumConverter x:Key="MySpectrumConverter" />
+        <cv:MySpectrumInverterConverter x:Key="MySpectrumInverterConverter" />
+    </ContentPage.Resources>
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.75*" />
+            <ColumnDefinition Width="0.25*" />
+        </Grid.ColumnDefinitions>
+        <Label Text="BitChain Search Options"
+               FontAttributes="Bold" />
+        <Label Grid.Column="1"
+               Text="Yes"
+               FontAttributes="Bold" />
+        <Label Grid.Row="1"
+               Text="{Binding Option1.FullName}"
+               VerticalTextAlignment="Center" />
+        <CheckBox Grid.Row="1"
+                  Grid.Column="1"
+                  HorizontalOptions="End">
+            <CheckBox.IsChecked>
+                <MultiBinding Converter="{StaticResource MySpectrumConverter}">
+                    <Binding Path="Option1.IsOver16" />
+                    <Binding Path="Option1.HasPassedTest" />
+                    <Binding Path="Option1.IsSuspended"
+                             Converter="{StaticResource MySpectrumInverterConverter}" />
+                </MultiBinding>
+            </CheckBox.IsChecked>
+        </CheckBox>
+        <Label Grid.Row="2"
+               Text="{Binding Option2.FullName}"
+               VerticalTextAlignment="Center" />
+        <CheckBox Grid.Row="2"
+                  Grid.Column="1"
+                  HorizontalOptions="End">
+            <CheckBox.IsChecked>
+                <MultiBinding Converter="{StaticResource MySpectrumConverter}">
+                    <Binding Path="Option2.IsOver16" />
+                    <Binding Path="Option2.HasPassedTest" />
+                    <Binding Path="Option2.IsSuspended"
+                             Converter="{StaticResource MySpectrumInverterConverter}" />
+                </MultiBinding>
+            </CheckBox.IsChecked>
+        </CheckBox>
+        <Label Grid.Row="3"
+               Text="{Binding Option3.FullName}"
+               VerticalTextAlignment="Center" />
+        <CheckBox Grid.Row="3"
+                  Grid.Column="1"
+                  HorizontalOptions="End">
+            <CheckBox.IsChecked>
+                <MultiBinding Converter="{StaticResource MySpectrumConverter}">
+                    <Binding Path="Option3.IsOver16" />
+                    <Binding Path="Option3.HasPassedTest" />
+                    <Binding Path="Option3.IsSuspended"
+                             Converter="{StaticResource MySpectrumInverterConverter}" />
+                </MultiBinding>
+            </CheckBox.IsChecked>
+        </CheckBox>
+        <Label Grid.Row="4"
+               Text="{Binding Option4.FullName}"
+               VerticalTextAlignment="Center" />
+        <CheckBox Grid.Row="4"
+                  Grid.Column="1"
+                  HorizontalOptions="End">
+            <CheckBox.IsChecked>
+                <MultiBinding Converter="{StaticResource MySpectrumConverter}">
+                    <Binding Path="Option4.IsOver16" />
+                    <Binding Path="Option4.HasPassedTest" />
+                    <Binding Path="Option4.IsSuspended"
+                             Converter="{StaticResource MySpectrumInverterConverter}" />
+                </MultiBinding>
+            </CheckBox.IsChecked>
+        </CheckBox>
+        <Label Grid.Row="5"
+               Text="{Binding Option5.FullName}"
+               VerticalTextAlignment="Center" />
+        <CheckBox Grid.Row="5"
+                  Grid.Column="1"
+                  HorizontalOptions="End">
+            <CheckBox.IsChecked>
+                <MultiBinding Converter="{StaticResource MySpectrumConverter}">
+                    <Binding Path="Option5.IsOver16" />
+                    <Binding Path="Option5.HasPassedTest" />
+                    <Binding Path="Option5.IsSuspended"
+                             Converter="{StaticResource MySpectrumInverterConverter}" />
+                </MultiBinding>
+            </CheckBox.IsChecked>
+        </CheckBox>
+        <Label Grid.Row="6" Text="----------" FontAttributes="Bold" HorizontalOptions="Center" />
+
+        
+        
+    </Grid>
+</ContentPage>

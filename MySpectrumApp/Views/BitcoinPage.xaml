@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MySpectrumApp.Views.BitcoinPage"
+             xmlns:local="clr-namespace:MySpectrumApp"
+             xmlns:behavors="clr-namespace:MySpectrumApp.Behaviors"
+             Title="Effect/Behavior">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Red when the number isn't valid" FontSize="Small" />
+		<Entry Placeholder="Enter Account Number (Numeric Only)">
+			<Entry.Behaviors>
+                    <behavors:MySpectrumBehaviors />
+			</Entry.Behaviors>
+		</Entry>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
